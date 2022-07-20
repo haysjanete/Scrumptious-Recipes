@@ -1,5 +1,7 @@
 from django import forms
+from django.shortcuts import redirect
 
+from recipes.models import Rating
 
 from recipes.models import Recipe
 
@@ -13,9 +15,6 @@ class RecipeForm(forms.ModelForm):
             "description",
             "image",
         ]
-
-
-from recipes.models import Rating
 
 
 class RatingForm(forms.ModelForm):
