@@ -1,7 +1,22 @@
 from django import forms
-from django.shortcuts import redirect
+
 
 from recipes.models import Rating
+from recipes.models import Recipe
+
+
+from django.shortcuts import redirect
+
+
+class RecipeForm(forms.ModelForm):
+    class Meta:
+        model = Recipe
+        fields = [
+            "name",
+            "author",
+            "description",
+            "image",
+        ]
 
 from recipes.models import Recipe
 

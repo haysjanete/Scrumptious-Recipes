@@ -1,3 +1,22 @@
+
+{% extends 'paginate.html' %}
+
+{% block content %}
+  <main class="recipe-grid">
+    {% for tag in tag_list %}
+      <div class="recipe-card">
+        <h2 class="recipe-card-title">
+          <a href="{% url 'tag_detail' tag.id %}">{{ tag.name }}</a>
+        </h2>
+        {% for recipe in tag.recipes.all %}
+          <p>
+            <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a>
+          </p>
+        {% endfor %}
+      </div>
+    {% empty %}
+      <div>
+        <h1>No tags, yet</h1>
 {% extends "base.html" %}
 
 {% block pagination %}
@@ -31,6 +50,12 @@
         <p>
           <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a>
         </p>
+
+      </div>
+    {% endfor %}
+  </main>
+{% endblock content %}
+
       {% endfor %}
     </div>
   {% empty %}
@@ -46,5 +71,5 @@
 </main>
 {% endblock content %}
 </body>
-
 </html>
+

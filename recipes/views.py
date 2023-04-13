@@ -5,13 +5,20 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
 from recipes.forms import RatingForm
 from recipes.models import Recipe
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 def log_rating(request, recipe_id):
     if request.method == "POST":
         form = RatingForm(request.POST)
         if form.is_valid():
+            try:
+                recipe = Recipe.objects.get(pk=recipe_id)
+                rating = form.save(commit=False)
+                rating.recipe = recipe
+
             rating = form.save(commit=False)
             try:
                 rating.recipe = Recipe.objects.get(pk=recipe_id)

@@ -27,6 +27,7 @@
         <li>
           <a href="{% url 'recipe_new' %}">Write a recipe</a>
         </li>
+
         {% if user.is_authenticated %}
         <li>
           <a href="{% url 'logout' %}">Logout</a>
@@ -37,6 +38,7 @@
           <a href="{% url 'admin:index' %}">Admin</a>
         </li>
         {% endif %}
+
       </ul>
     </nav>
     {% block pagination %}
@@ -45,4 +47,7 @@
   {% block content %}
   {% endblock content %}
 </body>
+
+</html>
+
 
