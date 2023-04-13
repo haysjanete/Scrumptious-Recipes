@@ -44,9 +44,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "markdownify.apps.MarkdownifyConfig",
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -151,3 +153,9 @@ MARKDOWNIFY = {
         ]
     }
 }
+
+LOGIN_REDIRECT_URL = "recipes_list"
+LOGOUT_REDIRECT_URL = "recipes_list"
+
+
+INTERNAL_IPS = ["127.0.0.1"]
