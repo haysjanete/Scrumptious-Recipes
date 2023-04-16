@@ -29,7 +29,7 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", ".herokuapp.com"]
+ALLOWED_HOSTS = ["localhost", "xfbgb2-8000.csb.app"]
 
 
 # Application definition
