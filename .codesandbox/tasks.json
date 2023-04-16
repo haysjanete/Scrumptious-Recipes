@@ -6,7 +6,8 @@
   "tasks": {
     "pip install --upgrade pip": {
       "name": "pip install --upgrade pip",
-      "command": "pip install --upgrade pip"
+      "command": "pip install --upgrade pip",
+      "runAtStart": true
     }
   }
 }
